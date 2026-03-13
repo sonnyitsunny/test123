@@ -3,11 +3,11 @@
 import { useState, useRef } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { ChevronRight, TrendingUp, X, Eye, EyeOff, Trash2, Camera, Settings, LogOut } from 'lucide-react';
-import { MY_USER, TRADE_JOURNALS, MY_PORTFOLIO, FOLLOWING_USERS } from '@/data/dummy';
+import { ChevronRight, TrendingUp, TrendingDown, X, Eye, EyeOff, Trash2, Camera, Settings, LogOut } from 'lucide-react';
+import { MY_USER, TRADE_JOURNALS, TRADE_HISTORIES, MY_PORTFOLIO, FOLLOWING_USERS } from '@/data/dummy';
 import PortfolioPieChart from '@/components/charts/PortfolioPieChart';
 
-type Tab = '매매일지' | '포트폴리오';
+type Tab = '매매일지' | '매매내역' | '포트폴리오';
 type Modal = null | 'edit' | 'password' | 'logout' | 'delete' | 'followers' | 'following';
 
 function fmtM(n: number) {
@@ -122,7 +122,7 @@ export default function MyProfilePage() {
         {/* Right: Tabs */}
         <div className="col-span-3 bg-white rounded-2xl border border-gray-100 overflow-hidden">
           <div className="flex border-b border-gray-100">
-            {(['매매일지', '포트폴리오'] as Tab[]).map(t => (
+            {(['매매일지', '매매내역', '포트폴리오'] as Tab[]).map(t => (
               <button key={t} onClick={() => setTab(t)}
                 className={`flex-1 py-4 text-sm font-semibold transition-colors ${tab === t ? 'text-[#0046FF] border-b-2 border-[#0046FF]' : 'text-gray-400 hover:text-gray-600'}`}>
                 {t}
@@ -157,6 +157,65 @@ export default function MyProfilePage() {
                     </Link>
                   );
                 })}
+              </div>
+            )}
+
+            {/* 매매내역 Tab */}
+            {tab === '매매내역' && (
+              <div className="overflow-hidden rounded-xl border border-gray-100">
+                <table className="w-full">
+                  <thead className="bg-gray-50">
+                    <tr className="text-xs text-gray-400">
+                      <th className="text-left px-4 py-3 font-semibold">종목</th>
+                      <th className="text-center px-3 py-3 font-semibold">구분</th>
+                      <th className="text-right px-3 py-3 font-semibold">수량</th>
+                      <th className="text-right px-3 py-3 font-semibold">체결가</th>
+                      <th className="text-right px-3 py-3 font-semibold">체결금액</th>
+                      <th className="text-right px-3 py-3 font-semibold">손익</th>
+                      <th className="text-right px-4 py-3 font-semibold">날짜</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-50">
+                    {TRADE_HISTORIES.map(trade => {
+                      const isProfit = (trade.profitLoss ?? 0) >= 0;
+                      return (
+                        <tr key={trade.id} className="hover:bg-gray-50 transition-colors">
+                          <td className="px-4 py-3">
+                            <div className="flex items-center gap-2.5">
+                              <div className="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0"
+                                style={{ backgroundColor: `hsl(${parseInt(trade.stock.id) * 47 % 360}, 65%, 50%)` }}>
+                                {trade.stock.name[0]}
+                              </div>
+                              <span className="text-sm font-semibold text-gray-800">{trade.stock.name}</span>
+                            </div>
+                          </td>
+                          <td className="px-3 py-3 text-center">
+                            <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${trade.type === 'buy' ? 'bg-red-100 text-red-600' : 'bg-blue-100 text-blue-600'}`}>
+                              {trade.type === 'buy' ? '매수' : '매도'}
+                            </span>
+                          </td>
+                          <td className="px-3 py-3 text-right text-sm text-gray-600">{trade.quantity}주</td>
+                          <td className="px-3 py-3 text-right text-sm font-medium text-gray-800">{trade.price.toLocaleString('ko-KR')}원</td>
+                          <td className="px-3 py-3 text-right text-sm text-gray-600">{fmtM(trade.totalAmount)}원</td>
+                          <td className="px-3 py-3 text-right">
+                            {trade.profitLoss !== undefined ? (
+                              <div className={`flex flex-col items-end ${isProfit ? 'text-red-500' : 'text-blue-600'}`}>
+                                <div className="flex items-center gap-0.5 text-xs font-bold">
+                                  {isProfit ? <TrendingUp size={11} /> : <TrendingDown size={11} />}
+                                  {isProfit ? '+' : ''}{fmtM(trade.profitLoss)}원
+                                </div>
+                                <span className="text-[11px]">{isProfit ? '+' : ''}{trade.profitLossRate?.toFixed(2)}%</span>
+                              </div>
+                            ) : <span className="text-xs text-gray-300">-</span>}
+                          </td>
+                          <td className="px-4 py-3 text-right text-xs text-gray-400">
+                            {new Date(trade.executedAt).toLocaleDateString('ko-KR', { month: 'short', day: 'numeric' })}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
               </div>
             )}
 
