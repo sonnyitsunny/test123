@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>코스피200 종목 - 모의투자</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, 'Apple SD Gothic Neo', 'Pretendard', 'Noto Sans KR', sans-serif; background: #F9FAFB; color: #111827; font-size: 14px; }
+a { text-decoration: none; color: inherit; }
+</style>
+</head>
+<body>
+<div style="display:flex;min-height:100vh;">
+
+  <!-- Sidebar (주식 active) -->
+  <aside style="width:240px;min-height:100vh;background:#fff;border-right:1px solid #F3F4F6;display:flex;flex-direction:column;padding:24px 12px;position:fixed;left:0;top:0;z-index:100;">
+    <div style="display:flex;align-items:center;gap:10px;padding:0 8px;margin-bottom:32px;">
+      <div style="width:36px;height:36px;background:#0046FF;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      </div>
+      <span style="font-size:16px;font-weight:700;color:#111827;">모의투자</span>
+    </div>
+    <nav style="flex:1;display:flex;flex-direction:column;gap:2px;">
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#4B5563;font-size:14px;font-weight:500;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        대시보드
+      </a>
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;background:#EBF0FF;color:#0046FF;font-size:14px;font-weight:600;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        주식
+      </a>
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#4B5563;font-size:14px;font-weight:500;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>포트폴리오</a>
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#4B5563;font-size:14px;font-weight:500;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>랭킹</a>
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#4B5563;font-size:14px;font-weight:500;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>매매일지</a>
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#4B5563;font-size:14px;font-weight:500;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>따라사기</a>
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#4B5563;font-size:14px;font-weight:500;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>알림<span style="margin-left:auto;background:#EF4444;color:#fff;font-size:10px;font-weight:700;padding:1px 6px;border-radius:999px;">2</span></a>
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#4B5563;font-size:14px;font-weight:500;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>프로필</a>
+    </nav>
+    <div style="border-top:1px solid #F3F4F6;padding-top:16px;">
+      <div style="display:flex;align-items:center;gap:10px;padding:8px 12px;">
+        <div style="width:36px;height:36px;background:#0046FF;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0;">투</div>
+        <div style="flex:1;min-width:0;">
+          <p style="font-size:13px;font-weight:600;color:#111827;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">투자왕김철수</p>
+          <p style="font-size:11px;color:#EF4444;font-weight:600;">+12.5%</p>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main style="margin-left:240px;flex:1;padding:32px;background:#F9FAFB;">
+
+    <!-- Header -->
+    <div style="margin-bottom:24px;">
+      <h1 style="font-size:24px;font-weight:700;color:#111827;margin-bottom:4px;">코스피200 종목</h1>
+      <p style="font-size:14px;color:#6B7280;">실시간 시세 | 20개 종목</p>
+    </div>
+
+    <!-- Search & Filter -->
+    <div style="background:#fff;border-radius:16px;border:1px solid #F3F4F6;padding:16px;margin-bottom:16px;">
+      <div style="display:flex;gap:12px;margin-bottom:12px;">
+        <!-- Search -->
+        <div style="flex:1;display:flex;align-items:center;gap:8px;background:#F9FAFB;border-radius:12px;padding:10px 14px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span style="font-size:14px;color:#9CA3AF;">종목명 또는 종목코드 검색</span>
+        </div>
+        <!-- Sort buttons -->
+        <div style="display:flex;gap:6px;">
+          <button style="padding:8px 14px;border-radius:12px;background:#0046FF;color:#fff;font-size:12px;font-weight:600;border:none;cursor:pointer;">기본순</button>
+          <button style="padding:8px 14px;border-radius:12px;background:#F9FAFB;color:#6B7280;font-size:12px;font-weight:600;border:none;cursor:pointer;">상승순</button>
+          <button style="padding:8px 14px;border-radius:12px;background:#F9FAFB;color:#6B7280;font-size:12px;font-weight:600;border:none;cursor:pointer;">하락순</button>
+          <button style="padding:8px 14px;border-radius:12px;background:#F9FAFB;color:#6B7280;font-size:12px;font-weight:600;border:none;cursor:pointer;">고가순</button>
+          <button style="padding:8px 14px;border-radius:12px;background:#F9FAFB;color:#6B7280;font-size:12px;font-weight:600;border:none;cursor:pointer;">거래량순</button>
+        </div>
+      </div>
+      <!-- Sector Tabs -->
+      <div style="display:flex;gap:6px;flex-wrap:wrap;">
+        <button style="padding:6px 12px;border-radius:999px;background:#0046FF;color:#fff;font-size:12px;font-weight:500;border:none;cursor:pointer;">전체</button>
+        <button style="padding:6px 12px;border-radius:999px;background:#F9FAFB;color:#6B7280;font-size:12px;font-weight:500;border:none;cursor:pointer;">반도체</button>
+        <button style="padding:6px 12px;border-radius:999px;background:#F9FAFB;color:#6B7280;font-size:12px;font-weight:500;border:none;cursor:pointer;">2차전지</button>
+        <button style="padding:6px 12px;border-radius:999px;background:#F9FAFB;color:#6B7280;font-size:12px;font-weight:500;border:none;cursor:pointer;">바이오</button>
+        <button style="padding:6px 12px;border-radius:999px;background:#F9FAFB;color:#6B7280;font-size:12px;font-weight:500;border:none;cursor:pointer;">자동차</button>
+        <button style="padding:6px 12px;border-radius:999px;background:#F9FAFB;color:#6B7280;font-size:12px;font-weight:500;border:none;cursor:pointer;">IT</button>
+        <button style="padding:6px 12px;border-radius:999px;background:#F9FAFB;color:#6B7280;font-size:12px;font-weight:500;border:none;cursor:pointer;">금융</button>
+        <button style="padding:6px 12px;border-radius:999px;background:#F9FAFB;color:#6B7280;font-size:12px;font-weight:500;border:none;cursor:pointer;">철강</button>
+        <button style="padding:6px 12px;border-radius:999px;background:#F9FAFB;color:#6B7280;font-size:12px;font-weight:500;border:none;cursor:pointer;">화학</button>
+        <button style="padding:6px 12px;border-radius:999px;background:#F9FAFB;color:#6B7280;font-size:12px;font-weight:500;border:none;cursor:pointer;">통신</button>
+        <button style="padding:6px 12px;border-radius:999px;background:#F9FAFB;color:#6B7280;font-size:12px;font-weight:500;border:none;cursor:pointer;">가전</button>
+        <button style="padding:6px 12px;border-radius:999px;background:#F9FAFB;color:#6B7280;font-size:12px;font-weight:500;border:none;cursor:pointer;">건설</button>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div style="background:#fff;border-radius:16px;border:1px solid #F3F4F6;overflow:hidden;">
+      <table style="width:100%;border-collapse:collapse;">
+        <thead style="background:#F9FAFB;">
+          <tr style="font-size:12px;color:#6B7280;">
+            <th style="text-align:left;padding:12px 20px;font-weight:600;width:32px;">#</th>
+            <th style="text-align:left;padding:12px 16px;font-weight:600;">종목명</th>
+            <th style="text-align:left;padding:12px 16px;font-weight:600;">섹터</th>
+            <th style="text-align:right;padding:12px 16px;font-weight:600;">현재가</th>
+            <th style="text-align:right;padding:12px 16px;font-weight:600;">등락률</th>
+            <th style="text-align:right;padding:12px 16px;font-weight:600;">등락</th>
+            <th style="text-align:right;padding:12px 16px;font-weight:600;">거래량</th>
+            <th style="text-align:right;padding:12px 20px;font-weight:600;">고가 / 저가</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Row template repeated for each stock -->
+          <tr style="border-top:1px solid #F9FAFB;">
+            <td style="padding:14px 20px;font-size:12px;color:#9CA3AF;font-weight:500;">1</td>
+            <td style="padding:14px 16px;">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="width:36px;height:36px;border-radius:50%;background:#EF4444;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;flex-shrink:0;">삼</div>
+                <div>
+                  <p style="font-size:14px;font-weight:600;color:#111827;">삼성전자</p>
+                  <p style="font-size:12px;color:#9CA3AF;">005930</p>
+                </div>
+              </div>
+            </td>
+            <td style="padding:14px 16px;"><span style="font-size:12px;padding:4px 8px;background:#F3F4F6;color:#4B5563;border-radius:999px;font-weight:500;">반도체</span></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:700;color:#111827;">73,400원</td>
+            <td style="padding:14px 16px;text-align:right;">
+              <span style="display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:700;color:#EF4444;background:#FEF2F2;padding:3px 8px;border-radius:8px;">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                +1.24%
+              </span>
+            </td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:500;color:#EF4444;">+900</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#6B7280;">1,284만주</td>
+            <td style="padding:14px 20px;text-align:right;font-size:12px;">
+              <span style="color:#EF4444;font-weight:500;">73,900</span>
+              <span style="color:#D1D5DB;margin:0 4px;">/</span>
+              <span style="color:#3B82F6;font-weight:500;">72,300</span>
+            </td>
+          </tr>
+          <tr style="border-top:1px solid #F9FAFB;">
+            <td style="padding:14px 20px;font-size:12px;color:#9CA3AF;font-weight:500;">2</td>
+            <td style="padding:14px 16px;">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="width:36px;height:36px;border-radius:50%;background:#A855F7;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;flex-shrink:0;">SK</div>
+                <div>
+                  <p style="font-size:14px;font-weight:600;color:#111827;">SK하이닉스</p>
+                  <p style="font-size:12px;color:#9CA3AF;">000660</p>
+                </div>
+              </div>
+            </td>
+            <td style="padding:14px 16px;"><span style="font-size:12px;padding:4px 8px;background:#F3F4F6;color:#4B5563;border-radius:999px;font-weight:500;">반도체</span></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:700;color:#111827;">192,500원</td>
+            <td style="padding:14px 16px;text-align:right;">
+              <span style="display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:700;color:#EF4444;background:#FEF2F2;padding:3px 8px;border-radius:8px;">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                +2.39%
+              </span>
+            </td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:500;color:#EF4444;">+4,500</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#6B7280;">324만주</td>
+            <td style="padding:14px 20px;text-align:right;font-size:12px;">
+              <span style="color:#EF4444;font-weight:500;">193,500</span>
+              <span style="color:#D1D5DB;margin:0 4px;">/</span>
+              <span style="color:#3B82F6;font-weight:500;">188,000</span>
+            </td>
+          </tr>
+          <tr style="border-top:1px solid #F9FAFB;">
+            <td style="padding:14px 20px;font-size:12px;color:#9CA3AF;font-weight:500;">3</td>
+            <td style="padding:14px 16px;">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="width:36px;height:36px;border-radius:50%;background:#22C55E;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;flex-shrink:0;">LG</div>
+                <div>
+                  <p style="font-size:14px;font-weight:600;color:#111827;">LG에너지솔루션</p>
+                  <p style="font-size:12px;color:#9CA3AF;">373220</p>
+                </div>
+              </div>
+            </td>
+            <td style="padding:14px 16px;"><span style="font-size:12px;padding:4px 8px;background:#F3F4F6;color:#4B5563;border-radius:999px;font-weight:500;">2차전지</span></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:700;color:#111827;">298,000원</td>
+            <td style="padding:14px 16px;text-align:right;">
+              <span style="display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:700;color:#2563EB;background:#EFF6FF;padding:3px 8px;border-radius:8px;">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 6 10.5 14.5 15.5 9.5 23 18"/><polyline points="17 18 23 18 23 12"/></svg>
+                -0.83%
+              </span>
+            </td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:500;color:#2563EB;">-2,500</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#6B7280;">54만주</td>
+            <td style="padding:14px 20px;text-align:right;font-size:12px;">
+              <span style="color:#EF4444;font-weight:500;">301,000</span>
+              <span style="color:#D1D5DB;margin:0 4px;">/</span>
+              <span style="color:#3B82F6;font-weight:500;">296,500</span>
+            </td>
+          </tr>
+          <tr style="border-top:1px solid #F9FAFB;">
+            <td style="padding:14px 20px;font-size:12px;color:#9CA3AF;font-weight:500;">4</td>
+            <td style="padding:14px 16px;">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="width:36px;height:36px;border-radius:50%;background:#F97316;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;flex-shrink:0;">삼</div>
+                <div>
+                  <p style="font-size:14px;font-weight:600;color:#111827;">삼성바이오로직스</p>
+                  <p style="font-size:12px;color:#9CA3AF;">207940</p>
+                </div>
+              </div>
+            </td>
+            <td style="padding:14px 16px;"><span style="font-size:12px;padding:4px 8px;background:#F3F4F6;color:#4B5563;border-radius:999px;font-weight:500;">바이오</span></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:700;color:#111827;">978,000원</td>
+            <td style="padding:14px 16px;text-align:right;">
+              <span style="display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:700;color:#EF4444;background:#FEF2F2;padding:3px 8px;border-radius:8px;">+0.51%</span>
+            </td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:500;color:#EF4444;">+5,000</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#6B7280;">10만주</td>
+            <td style="padding:14px 20px;text-align:right;font-size:12px;">
+              <span style="color:#EF4444;font-weight:500;">980,000</span>
+              <span style="color:#D1D5DB;margin:0 4px;">/</span>
+              <span style="color:#3B82F6;font-weight:500;">970,000</span>
+            </td>
+          </tr>
+          <tr style="border-top:1px solid #F9FAFB;">
+            <td style="padding:14px 20px;font-size:12px;color:#9CA3AF;font-weight:500;">5</td>
+            <td style="padding:14px 16px;">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="width:36px;height:36px;border-radius:50%;background:#06B6D4;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;flex-shrink:0;">현</div>
+                <div>
+                  <p style="font-size:14px;font-weight:600;color:#111827;">현대차</p>
+                  <p style="font-size:12px;color:#9CA3AF;">005380</p>
+                </div>
+              </div>
+            </td>
+            <td style="padding:14px 16px;"><span style="font-size:12px;padding:4px 8px;background:#F3F4F6;color:#4B5563;border-radius:999px;font-weight:500;">자동차</span></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:700;color:#111827;">241,500원</td>
+            <td style="padding:14px 16px;text-align:right;">
+              <span style="display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:700;color:#EF4444;background:#FEF2F2;padding:3px 8px;border-radius:8px;">+1.68%</span>
+            </td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:500;color:#EF4444;">+4,000</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#6B7280;">85만주</td>
+            <td style="padding:14px 20px;text-align:right;font-size:12px;">
+              <span style="color:#EF4444;font-weight:500;">242,500</span>
+              <span style="color:#D1D5DB;margin:0 4px;">/</span>
+              <span style="color:#3B82F6;font-weight:500;">237,500</span>
+            </td>
+          </tr>
+          <tr style="border-top:1px solid #F9FAFB;">
+            <td style="padding:14px 20px;font-size:12px;color:#9CA3AF;font-weight:500;">6</td>
+            <td style="padding:14px 16px;">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="width:36px;height:36px;border-radius:50%;background:#EAB308;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;flex-shrink:0;">기</div>
+                <div>
+                  <p style="font-size:14px;font-weight:600;color:#111827;">기아</p>
+                  <p style="font-size:12px;color:#9CA3AF;">000270</p>
+                </div>
+              </div>
+            </td>
+            <td style="padding:14px 16px;"><span style="font-size:12px;padding:4px 8px;background:#F3F4F6;color:#4B5563;border-radius:999px;font-weight:500;">자동차</span></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:700;color:#111827;">108,500원</td>
+            <td style="padding:14px 16px;text-align:right;">
+              <span style="display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:700;color:#EF4444;background:#FEF2F2;padding:3px 8px;border-radius:8px;">+2.07%</span>
+            </td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:500;color:#EF4444;">+2,200</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#6B7280;">124만주</td>
+            <td style="padding:14px 20px;text-align:right;font-size:12px;">
+              <span style="color:#EF4444;font-weight:500;">109,000</span>
+              <span style="color:#D1D5DB;margin:0 4px;">/</span>
+              <span style="color:#3B82F6;font-weight:500;">106,300</span>
+            </td>
+          </tr>
+          <tr style="border-top:1px solid #F9FAFB;">
+            <td style="padding:14px 20px;font-size:12px;color:#9CA3AF;font-weight:500;">7</td>
+            <td style="padding:14px 16px;">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="width:36px;height:36px;border-radius:50%;background:#8B5CF6;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;flex-shrink:0;">PO</div>
+                <div>
+                  <p style="font-size:14px;font-weight:600;color:#111827;">POSCO홀딩스</p>
+                  <p style="font-size:12px;color:#9CA3AF;">005490</p>
+                </div>
+              </div>
+            </td>
+            <td style="padding:14px 16px;"><span style="font-size:12px;padding:4px 8px;background:#F3F4F6;color:#4B5563;border-radius:999px;font-weight:500;">철강</span></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:700;color:#111827;">378,500원</td>
+            <td style="padding:14px 16px;text-align:right;">
+              <span style="display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:700;color:#2563EB;background:#EFF6FF;padding:3px 8px;border-radius:8px;">-1.17%</span>
+            </td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:500;color:#2563EB;">-4,500</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#6B7280;">41만주</td>
+            <td style="padding:14px 20px;text-align:right;font-size:12px;">
+              <span style="color:#EF4444;font-weight:500;">384,000</span>
+              <span style="color:#D1D5DB;margin:0 4px;">/</span>
+              <span style="color:#3B82F6;font-weight:500;">377,000</span>
+            </td>
+          </tr>
+          <tr style="border-top:1px solid #F9FAFB;">
+            <td style="padding:14px 20px;font-size:12px;color:#9CA3AF;font-weight:500;">8</td>
+            <td style="padding:14px 16px;">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="width:36px;height:36px;border-radius:50%;background:#EC4899;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:700;flex-shrink:0;">SDI</div>
+                <div>
+                  <p style="font-size:14px;font-weight:600;color:#111827;">삼성SDI</p>
+                  <p style="font-size:12px;color:#9CA3AF;">006400</p>
+                </div>
+              </div>
+            </td>
+            <td style="padding:14px 16px;"><span style="font-size:12px;padding:4px 8px;background:#F3F4F6;color:#4B5563;border-radius:999px;font-weight:500;">2차전지</span></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:700;color:#111827;">312,000원</td>
+            <td style="padding:14px 16px;text-align:right;">
+              <span style="display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:700;color:#2563EB;background:#EFF6FF;padding:3px 8px;border-radius:8px;">-2.19%</span>
+            </td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:500;color:#2563EB;">-7,000</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#6B7280;">39만주</td>
+            <td style="padding:14px 20px;text-align:right;font-size:12px;">
+              <span style="color:#EF4444;font-weight:500;">320,000</span>
+              <span style="color:#D1D5DB;margin:0 4px;">/</span>
+              <span style="color:#3B82F6;font-weight:500;">310,500</span>
+            </td>
+          </tr>
+          <tr style="border-top:1px solid #F9FAFB;">
+            <td style="padding:14px 20px;font-size:12px;color:#9CA3AF;font-weight:500;">9</td>
+            <td style="padding:14px 16px;">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="width:36px;height:36px;border-radius:50%;background:#14B8A6;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;flex-shrink:0;">LG</div>
+                <div>
+                  <p style="font-size:14px;font-weight:600;color:#111827;">LG화학</p>
+                  <p style="font-size:12px;color:#9CA3AF;">051910</p>
+                </div>
+              </div>
+            </td>
+            <td style="padding:14px 16px;"><span style="font-size:12px;padding:4px 8px;background:#F3F4F6;color:#4B5563;border-radius:999px;font-weight:500;">화학</span></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:700;color:#111827;">298,500원</td>
+            <td style="padding:14px 16px;text-align:right;">
+              <span style="display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:700;color:#2563EB;background:#EFF6FF;padding:3px 8px;border-radius:8px;">-0.50%</span>
+            </td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:500;color:#2563EB;">-1,500</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#6B7280;">30만주</td>
+            <td style="padding:14px 20px;text-align:right;font-size:12px;">
+              <span style="color:#EF4444;font-weight:500;">301,000</span>
+              <span style="color:#D1D5DB;margin:0 4px;">/</span>
+              <span style="color:#3B82F6;font-weight:500;">297,000</span>
+            </td>
+          </tr>
+          <tr style="border-top:1px solid #F9FAFB;">
+            <td style="padding:14px 20px;font-size:12px;color:#9CA3AF;font-weight:500;">10</td>
+            <td style="padding:14px 16px;">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="width:36px;height:36px;border-radius:50%;background:#10B981;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;flex-shrink:0;">N</div>
+                <div>
+                  <p style="font-size:14px;font-weight:600;color:#111827;">NAVER</p>
+                  <p style="font-size:12px;color:#9CA3AF;">035420</p>
+                </div>
+              </div>
+            </td>
+            <td style="padding:14px 16px;"><span style="font-size:12px;padding:4px 8px;background:#F3F4F6;color:#4B5563;border-radius:999px;font-weight:500;">IT</span></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:700;color:#111827;">192,000원</td>
+            <td style="padding:14px 16px;text-align:right;">
+              <span style="display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:700;color:#EF4444;background:#FEF2F2;padding:3px 8px;border-radius:8px;">+0.79%</span>
+            </td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:500;color:#EF4444;">+1,500</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#6B7280;">67만주</td>
+            <td style="padding:14px 20px;text-align:right;font-size:12px;">
+              <span style="color:#EF4444;font-weight:500;">193,500</span>
+              <span style="color:#D1D5DB;margin:0 4px;">/</span>
+              <span style="color:#3B82F6;font-weight:500;">190,000</span>
+            </td>
+          </tr>
+          <!-- ... remaining stocks abbreviated for brevity -->
+          <tr style="border-top:1px solid #F9FAFB;">
+            <td style="padding:14px 20px;font-size:12px;color:#9CA3AF;">11</td>
+            <td style="padding:14px 16px;"><div style="display:flex;align-items:center;gap:12px;"><div style="width:36px;height:36px;border-radius:50%;background:#F59E0B;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;">카</div><div><p style="font-size:14px;font-weight:600;color:#111827;">카카오</p><p style="font-size:12px;color:#9CA3AF;">035720</p></div></div></td>
+            <td style="padding:14px 16px;"><span style="font-size:12px;padding:4px 8px;background:#F3F4F6;color:#4B5563;border-radius:999px;">IT</span></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:700;">44,850원</td>
+            <td style="padding:14px 16px;text-align:right;"><span style="font-size:14px;font-weight:700;color:#2563EB;background:#EFF6FF;padding:3px 8px;border-radius:8px;">-1.21%</span></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#2563EB;">-550</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#6B7280;">234만주</td>
+            <td style="padding:14px 20px;text-align:right;font-size:12px;"><span style="color:#EF4444;">45,400</span><span style="color:#D1D5DB;margin:0 4px;">/</span><span style="color:#3B82F6;">44,600</span></td>
+          </tr>
+          <tr style="border-top:1px solid #F9FAFB;">
+            <td style="padding:14px 20px;font-size:12px;color:#9CA3AF;">12</td>
+            <td style="padding:14px 16px;"><div style="display:flex;align-items:center;gap:12px;"><div style="width:36px;height:36px;border-radius:50%;background:#6366F1;display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;font-weight:700;">KB</div><div><p style="font-size:14px;font-weight:600;color:#111827;">KB금융</p><p style="font-size:12px;color:#9CA3AF;">105560</p></div></div></td>
+            <td style="padding:14px 16px;"><span style="font-size:12px;padding:4px 8px;background:#F3F4F6;color:#4B5563;border-radius:999px;">금융</span></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:700;">87,200원</td>
+            <td style="padding:14px 16px;text-align:right;"><span style="font-size:14px;font-weight:700;color:#EF4444;background:#FEF2F2;padding:3px 8px;border-radius:8px;">+0.92%</span></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#EF4444;">+800</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#6B7280;">72만주</td>
+            <td style="padding:14px 20px;text-align:right;font-size:12px;"><span style="color:#EF4444;">87,500</span><span style="color:#D1D5DB;margin:0 4px;">/</span><span style="color:#3B82F6;">86,400</span></td>
+          </tr>
+          <tr style="border-top:1px solid #F9FAFB;">
+            <td style="padding:14px 20px;font-size:12px;color:#9CA3AF;">13~20</td>
+            <td colspan="7" style="padding:14px 16px;font-size:13px;color:#9CA3AF;font-style:italic;">신한지주, 하나금융지주, SK텔레콤, KT, LG전자, 삼성물산, 셀트리온, 에코프로비엠 ...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+</body>
+</html>

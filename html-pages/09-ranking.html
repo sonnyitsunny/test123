@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>랭킹 - 모의투자</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, 'Apple SD Gothic Neo', 'Pretendard', 'Noto Sans KR', sans-serif; background: #F9FAFB; color: #111827; font-size: 14px; }
+a { text-decoration: none; color: inherit; }
+</style>
+</head>
+<body>
+<div style="display:flex;min-height:100vh;">
+
+  <!-- Sidebar (랭킹 active) -->
+  <aside style="width:240px;min-height:100vh;background:#fff;border-right:1px solid #F3F4F6;display:flex;flex-direction:column;padding:24px 12px;position:fixed;left:0;top:0;z-index:100;">
+    <div style="display:flex;align-items:center;gap:10px;padding:0 8px;margin-bottom:32px;"><div style="width:36px;height:36px;background:#0046FF;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><span style="font-size:16px;font-weight:700;color:#111827;">모의투자</span></div>
+    <nav style="flex:1;display:flex;flex-direction:column;gap:2px;">
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#4B5563;font-size:14px;font-weight:500;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>대시보드</a>
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#4B5563;font-size:14px;font-weight:500;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>주식</a>
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#4B5563;font-size:14px;font-weight:500;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>포트폴리오</a>
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;background:#EBF0FF;color:#0046FF;font-size:14px;font-weight:600;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>랭킹</a>
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#4B5563;font-size:14px;font-weight:500;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>매매일지</a>
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#4B5563;font-size:14px;font-weight:500;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>따라사기</a>
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#4B5563;font-size:14px;font-weight:500;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>알림<span style="margin-left:auto;background:#EF4444;color:#fff;font-size:10px;font-weight:700;padding:1px 6px;border-radius:999px;">2</span></a>
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#4B5563;font-size:14px;font-weight:500;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>프로필</a>
+    </nav>
+    <div style="border-top:1px solid #F3F4F6;padding-top:16px;"><div style="display:flex;align-items:center;gap:10px;padding:8px 12px;"><div style="width:36px;height:36px;background:#0046FF;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0;">투</div><div><p style="font-size:13px;font-weight:600;color:#111827;">투자왕김철수</p><p style="font-size:11px;color:#EF4444;font-weight:600;">+12.5%</p></div></div></div>
+  </aside>
+
+  <!-- Main -->
+  <main style="margin-left:240px;flex:1;padding:32px;background:#F9FAFB;">
+
+    <!-- Header -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#EAB308" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <h1 style="font-size:24px;font-weight:700;color:#111827;">고수 랭킹</h1>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="display:flex;align-items:center;gap:8px;background:#fff;border:1px solid #F3F4F6;border-radius:12px;padding:10px 14px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9CA3AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span style="font-size:14px;color:#9CA3AF;">닉네임 검색</span>
+        </div>
+        <div style="display:flex;gap:4px;background:#fff;border:1px solid #F3F4F6;border-radius:12px;padding:4px;">
+          <button style="padding:8px 16px;border-radius:8px;background:#F9FAFB;color:#6B7280;font-size:14px;font-weight:600;border:none;cursor:pointer;">주간</button>
+          <button style="padding:8px 16px;border-radius:8px;background:#F9FAFB;color:#6B7280;font-size:14px;font-weight:600;border:none;cursor:pointer;">월간</button>
+          <button style="padding:8px 16px;border-radius:8px;background:#0046FF;color:#fff;font-size:14px;font-weight:600;border:none;cursor:pointer;">전체</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top 3 Podium -->
+    <div style="background:linear-gradient(to bottom,#EBF0FF,#fff);border-radius:16px;padding:32px;margin-bottom:24px;">
+      <div style="display:flex;align-items:flex-end;justify-content:center;gap:24px;">
+
+        <!-- 2nd Place -->
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div style="width:64px;height:64px;border-radius:50%;background:#9CA3AF;display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;font-weight:700;margin-bottom:8px;">주</div>
+          <div style="width:32px;height:32px;border-radius:50%;background:#9CA3AF;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;margin-bottom:4px;">2</div>
+          <div style="background:#F3F4F6;border-radius:12px 12px 0 0;width:112px;height:80px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px;">
+            <p style="font-size:12px;font-weight:600;color:#374151;text-align:center;">주식고수박영희</p>
+            <p style="font-size:14px;font-weight:700;color:#EF4444;margin-top:2px;">+34.8%</p>
+            <p style="font-size:10px;color:#9CA3AF;">218명 팔로잉</p>
+          </div>
+        </div>
+
+        <!-- 1st Place -->
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <span style="font-size:28px;margin-bottom:4px;">👑</span>
+          <div style="width:80px;height:80px;border-radius:50%;background:#EAB308;display:flex;align-items:center;justify-content:center;color:#fff;font-size:28px;font-weight:700;margin-bottom:8px;">주</div>
+          <div style="width:36px;height:36px;border-radius:50%;background:#EAB308;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;margin-bottom:4px;">1</div>
+          <div style="background:#EBF0FF;border-radius:12px 12px 0 0;width:112px;height:112px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px;">
+            <p style="font-size:12px;font-weight:600;color:#374151;text-align:center;">주식마스터</p>
+            <p style="font-size:18px;font-weight:700;color:#EF4444;margin-top:4px;">+48.3%</p>
+            <p style="font-size:10px;color:#9CA3AF;">542명 팔로잉</p>
+          </div>
+        </div>
+
+        <!-- 3rd Place -->
+        <div style="display:flex;flex-direction:column;align-items:center;">
+          <div style="width:64px;height:64px;border-radius:50%;background:#FB923C;display:flex;align-items:center;justify-content:center;color:#fff;font-size:24px;font-weight:700;margin-bottom:8px;">황</div>
+          <div style="width:32px;height:32px;border-radius:50%;background:#FB923C;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;margin-bottom:4px;">3</div>
+          <div style="background:#FFF7ED;border-radius:12px 12px 0 0;width:112px;height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px;">
+            <p style="font-size:12px;font-weight:600;color:#374151;text-align:center;">황금손투자자</p>
+            <p style="font-size:14px;font-weight:700;color:#EF4444;margin-top:2px;">+31.2%</p>
+            <p style="font-size:10px;color:#9CA3AF;">387명 팔로잉</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Ranking Table -->
+    <div style="background:#fff;border-radius:16px;border:1px solid #F3F4F6;overflow:hidden;">
+      <table style="width:100%;border-collapse:collapse;">
+        <thead style="background:#F9FAFB;">
+          <tr style="font-size:12px;color:#6B7280;">
+            <th style="text-align:left;padding:14px 24px;font-weight:600;width:48px;">순위</th>
+            <th style="text-align:left;padding:14px 16px;font-weight:600;">투자자</th>
+            <th style="text-align:right;padding:14px 16px;font-weight:600;">팔로워</th>
+            <th style="text-align:right;padding:14px 16px;font-weight:600;">주간 수익률</th>
+            <th style="text-align:right;padding:14px 16px;font-weight:600;">월간 수익률</th>
+            <th style="text-align:right;padding:14px 16px;font-weight:600;">총 수익률</th>
+            <th style="text-align:right;padding:14px 16px;font-weight:600;">총 수익</th>
+            <th style="text-align:center;padding:14px 24px;font-weight:600;">따라하기</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Rows 4-11 (top 3 shown in podium) -->
+          <tr style="border-top:1px solid #F9FAFB;">
+            <td style="padding:14px 24px;"><div style="width:32px;height:32px;border-radius:50%;background:#F3F4F6;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#9CA3AF;">4</div></td>
+            <td style="padding:14px 16px;"><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;border-radius:50%;background:#22C55E;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0;">코</div><p style="font-size:14px;font-weight:600;color:#1F2937;">코스피200왕</p></div></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#6B7280;">156</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:600;color:#EF4444;">+3.8%</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:600;color:#EF4444;">+9.4%</td>
+            <td style="padding:14px 16px;text-align:right;"><div style="display:flex;align-items:center;justify-content:flex-end;gap:4px;color:#EF4444;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg><span style="font-size:14px;font-weight:700;">+27.5%</span></div></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#4B5563;">+710만원</td>
+            <td style="padding:14px 24px;text-align:center;"><button style="padding:6px 16px;border-radius:999px;background:#0046FF;color:#fff;font-size:12px;font-weight:600;border:none;cursor:pointer;">따라하기</button></td>
+          </tr>
+          <tr style="border-top:1px solid #F9FAFB;">
+            <td style="padding:14px 24px;"><div style="width:32px;height:32px;border-radius:50%;background:#F3F4F6;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#9CA3AF;">5</div></td>
+            <td style="padding:14px 16px;"><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;border-radius:50%;background:#06B6D4;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0;">반</div><p style="font-size:14px;font-weight:600;color:#1F2937;">반도체전문가</p></div></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#6B7280;">98</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:600;color:#EF4444;">+3.2%</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:600;color:#EF4444;">+8.7%</td>
+            <td style="padding:14px 16px;text-align:right;"><div style="display:flex;align-items:center;justify-content:flex-end;gap:4px;color:#EF4444;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg><span style="font-size:14px;font-weight:700;">+23.8%</span></div></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#4B5563;">+430만원</td>
+            <td style="padding:14px 24px;text-align:center;"><button style="padding:6px 16px;border-radius:999px;background:#0046FF;color:#fff;font-size:12px;font-weight:600;border:none;cursor:pointer;">따라하기</button></td>
+          </tr>
+          <tr style="border-top:1px solid #F9FAFB;">
+            <td style="padding:14px 24px;"><div style="width:32px;height:32px;border-radius:50%;background:#F3F4F6;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#9CA3AF;">6</div></td>
+            <td style="padding:14px 16px;"><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;border-radius:50%;background:#8B5CF6;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0;">배</div><p style="font-size:14px;font-weight:600;color:#1F2937;">배당주러버</p></div></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#6B7280;">124</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:600;color:#EF4444;">+2.9%</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:600;color:#EF4444;">+7.2%</td>
+            <td style="padding:14px 16px;text-align:right;"><div style="display:flex;align-items:center;justify-content:flex-end;gap:4px;color:#EF4444;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg><span style="font-size:14px;font-weight:700;">+21.4%</span></div></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#4B5563;">+380만원</td>
+            <td style="padding:14px 24px;text-align:center;"><button style="padding:6px 16px;border-radius:999px;background:#0046FF;color:#fff;font-size:12px;font-weight:600;border:none;cursor:pointer;">따라하기</button></td>
+          </tr>
+          <tr style="border-top:1px solid #F9FAFB;">
+            <td style="padding:14px 24px;"><div style="width:32px;height:32px;border-radius:50%;background:#F3F4F6;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#9CA3AF;">7</div></td>
+            <td style="padding:14px 16px;"><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;border-radius:50%;background:#EC4899;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0;">성</div><p style="font-size:14px;font-weight:600;color:#1F2937;">성장주헌터</p></div></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#6B7280;">76</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:600;color:#EF4444;">+2.4%</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:600;color:#EF4444;">+6.8%</td>
+            <td style="padding:14px 16px;text-align:right;"><div style="display:flex;align-items:center;justify-content:flex-end;gap:4px;color:#EF4444;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg><span style="font-size:14px;font-weight:700;">+18.9%</span></div></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#4B5563;">+290만원</td>
+            <td style="padding:14px 24px;text-align:center;"><button style="padding:6px 16px;border-radius:999px;background:#0046FF;color:#fff;font-size:12px;font-weight:600;border:none;cursor:pointer;">따라하기</button></td>
+          </tr>
+          <tr style="border-top:1px solid #F9FAFB;">
+            <td style="padding:14px 24px;"><div style="width:32px;height:32px;border-radius:50%;background:#F3F4F6;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#9CA3AF;">8</div></td>
+            <td style="padding:14px 16px;"><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;border-radius:50%;background:#14B8A6;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0;">가</div><p style="font-size:14px;font-weight:600;color:#1F2937;">가치투자자</p></div></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#6B7280;">63</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:600;color:#EF4444;">+1.8%</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:600;color:#EF4444;">+5.9%</td>
+            <td style="padding:14px 16px;text-align:right;"><div style="display:flex;align-items:center;justify-content:flex-end;gap:4px;color:#EF4444;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg><span style="font-size:14px;font-weight:700;">+16.3%</span></div></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#4B5563;">+240만원</td>
+            <td style="padding:14px 24px;text-align:center;"><button style="padding:6px 16px;border-radius:999px;background:#0046FF;color:#fff;font-size:12px;font-weight:600;border:none;cursor:pointer;">따라하기</button></td>
+          </tr>
+          <tr style="border-top:1px solid #F9FAFB;">
+            <td style="padding:14px 24px;"><div style="width:32px;height:32px;border-radius:50%;background:#F3F4F6;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#9CA3AF;">9</div></td>
+            <td style="padding:14px 16px;"><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;border-radius:50%;background:#6366F1;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0;">퀀</div><p style="font-size:14px;font-weight:600;color:#1F2937;">퀀트투자봇</p></div></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#6B7280;">45</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:600;color:#EF4444;">+1.5%</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:600;color:#EF4444;">+4.8%</td>
+            <td style="padding:14px 16px;text-align:right;"><div style="display:flex;align-items:center;justify-content:flex-end;gap:4px;color:#EF4444;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg><span style="font-size:14px;font-weight:700;">+14.7%</span></div></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#4B5563;">+190만원</td>
+            <td style="padding:14px 24px;text-align:center;"><button style="padding:6px 16px;border-radius:999px;background:#0046FF;color:#fff;font-size:12px;font-weight:600;border:none;cursor:pointer;">따라하기</button></td>
+          </tr>
+          <tr style="border-top:1px solid #F9FAFB;">
+            <td style="padding:14px 24px;"><div style="width:32px;height:32px;border-radius:50%;background:#F3F4F6;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#9CA3AF;">10</div></td>
+            <td style="padding:14px 16px;"><div style="display:flex;align-items:center;gap:12px;"><div style="width:40px;height:40px;border-radius:50%;background:#F59E0B;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0;">모</div><p style="font-size:14px;font-weight:600;color:#1F2937;">모멘텀라이더</p></div></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#6B7280;">38</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:600;color:#EF4444;">+1.3%</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:600;color:#EF4444;">+4.1%</td>
+            <td style="padding:14px 16px;text-align:right;"><div style="display:flex;align-items:center;justify-content:flex-end;gap:4px;color:#EF4444;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg><span style="font-size:14px;font-weight:700;">+13.2%</span></div></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#4B5563;">+160만원</td>
+            <td style="padding:14px 24px;text-align:center;"><button style="padding:6px 16px;border-radius:999px;background:#0046FF;color:#fff;font-size:12px;font-weight:600;border:none;cursor:pointer;">따라하기</button></td>
+          </tr>
+          <!-- My row (highlighted) -->
+          <tr style="border-top:1px solid #F9FAFB;background:#EFF6FF;">
+            <td style="padding:14px 24px;"><div style="width:32px;height:32px;border-radius:50%;background:#F3F4F6;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;color:#9CA3AF;">11</div></td>
+            <td style="padding:14px 16px;">
+              <div style="display:flex;align-items:center;gap:12px;">
+                <div style="width:40px;height:40px;border-radius:50%;background:#0046FF;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0;">투</div>
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <p style="font-size:14px;font-weight:600;color:#1F2937;">투자왕김철수</p>
+                  <span style="font-size:10px;padding:2px 6px;border-radius:999px;background:#0046FF;color:#fff;font-weight:600;">나</span>
+                </div>
+              </div>
+            </td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#6B7280;">42</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:600;color:#EF4444;">+1.1%</td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;font-weight:600;color:#EF4444;">+3.7%</td>
+            <td style="padding:14px 16px;text-align:right;"><div style="display:flex;align-items:center;justify-content:flex-end;gap:4px;color:#EF4444;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg><span style="font-size:14px;font-weight:700;">+12.5%</span></div></td>
+            <td style="padding:14px 16px;text-align:right;font-size:14px;color:#4B5563;">+125만원</td>
+            <td style="padding:14px 24px;text-align:center;"><span style="font-size:12px;color:#9CA3AF;">-</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+</body>
+</html>

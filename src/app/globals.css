@@ -2,7 +2,17 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #111827;
+  --primary: #0046FF;
+  --primary-dark: #0039D6;
+  --primary-light: #EBF0FF;
+  --positive: #E53E3E;
+  --positive-bg: #FFF5F5;
+  --negative: #2B6CB0;
+  --negative-bg: #EBF8FF;
+  --border: #E5E7EB;
+  --surface: #F9FAFB;
+  --text-secondary: #6B7280;
 }
 
 @theme inline {
@@ -12,15 +22,21 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Pretendard', 'Noto Sans KR', sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }

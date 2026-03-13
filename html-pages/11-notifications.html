@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1440">
+<title>알림 - 모의투자</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, 'Apple SD Gothic Neo', 'Pretendard', 'Noto Sans KR', sans-serif; background: #F9FAFB; color: #111827; font-size: 14px; }
+a { text-decoration: none; color: inherit; }
+</style>
+</head>
+<body>
+<div style="display:flex;min-height:100vh;">
+
+  <!-- Sidebar (알림 active) -->
+  <aside style="width:240px;min-height:100vh;background:#fff;border-right:1px solid #F3F4F6;display:flex;flex-direction:column;padding:24px 12px;position:fixed;left:0;top:0;z-index:100;">
+    <div style="display:flex;align-items:center;gap:10px;padding:0 8px;margin-bottom:32px;"><div style="width:36px;height:36px;background:#0046FF;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><span style="font-size:16px;font-weight:700;color:#111827;">모의투자</span></div>
+    <nav style="flex:1;display:flex;flex-direction:column;gap:2px;">
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#4B5563;font-size:14px;font-weight:500;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>대시보드</a>
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#4B5563;font-size:14px;font-weight:500;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>주식</a>
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#4B5563;font-size:14px;font-weight:500;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>포트폴리오</a>
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#4B5563;font-size:14px;font-weight:500;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>랭킹</a>
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#4B5563;font-size:14px;font-weight:500;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>매매일지</a>
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#4B5563;font-size:14px;font-weight:500;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>따라사기</a>
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;background:#EBF0FF;color:#0046FF;font-size:14px;font-weight:600;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        알림
+        <span style="margin-left:auto;background:#EF4444;color:#fff;font-size:10px;font-weight:700;padding:1px 6px;border-radius:999px;">2</span>
+      </a>
+      <a href="#" style="display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;color:#4B5563;font-size:14px;font-weight:500;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>프로필</a>
+    </nav>
+    <div style="border-top:1px solid #F3F4F6;padding-top:16px;"><div style="display:flex;align-items:center;gap:10px;padding:8px 12px;"><div style="width:36px;height:36px;background:#0046FF;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0;">투</div><div><p style="font-size:13px;font-weight:600;color:#111827;">투자왕김철수</p><p style="font-size:11px;color:#EF4444;font-weight:600;">+12.5%</p></div></div></div>
+  </aside>
+
+  <!-- Main -->
+  <main style="margin-left:240px;flex:1;padding:32px;background:#F9FAFB;">
+
+    <!-- Header -->
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0046FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <h1 style="font-size:24px;font-weight:700;color:#111827;">알림</h1>
+        <span style="padding:2px 10px;border-radius:999px;background:#0046FF;color:#fff;font-size:12px;font-weight:700;">2</span>
+      </div>
+      <button style="display:flex;align-items:center;gap:8px;padding:8px 16px;background:#fff;border:1px solid #E5E7EB;border-radius:12px;font-size:14px;color:#6B7280;font-weight:500;cursor:pointer;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/><polyline points="20 12 9 23 4 18"/></svg>
+        모두 읽음
+      </button>
+    </div>
+
+    <!-- 2-column layout: sidebar filter + content -->
+    <div style="display:grid;grid-template-columns:1fr 3fr;gap:20px;">
+
+      <!-- Filter Sidebar -->
+      <div>
+        <div style="background:#fff;border-radius:16px;border:1px solid #F3F4F6;padding:16px;position:sticky;top:32px;">
+          <p style="font-size:12px;font-weight:600;color:#6B7280;margin-bottom:12px;padding:0 4px;">필터</p>
+          <button style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:12px;background:#0046FF;color:#fff;font-size:14px;font-weight:500;border:none;cursor:pointer;margin-bottom:4px;">
+            <span>전체</span>
+            <span style="font-size:12px;padding:2px 8px;border-radius:999px;background:rgba(255,255,255,0.2);font-weight:700;">7</span>
+          </button>
+          <button style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:12px;background:transparent;color:#4B5563;font-size:14px;font-weight:500;border:none;cursor:pointer;margin-bottom:4px;">
+            <span>따라하기</span>
+            <span style="font-size:12px;padding:2px 8px;border-radius:999px;background:#F3F4F6;color:#6B7280;font-weight:700;">4</span>
+          </button>
+          <button style="width:100%;display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border-radius:12px;background:transparent;color:#4B5563;font-size:14px;font-weight:500;border:none;cursor:pointer;">
+            <span>체결</span>
+            <span style="font-size:12px;padding:2px 8px;border-radius:999px;background:#F3F4F6;color:#6B7280;font-weight:700;">3</span>
+          </button>
+          <div style="margin-top:16px;padding-top:16px;border-top:1px solid #F3F4F6;">
+            <p style="font-size:12px;color:#9CA3AF;padding:0 4px;">읽지 않은 알림 <span style="font-weight:700;color:#374151;">2개</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notification List -->
+      <div style="background:#fff;border-radius:16px;border:1px solid #F3F4F6;overflow:hidden;">
+
+        <!-- Unread: copy trade -->
+        <div style="display:flex;align-items:flex-start;gap:16px;padding:20px 24px;background:#F0F5FF;cursor:pointer;">
+          <div style="width:40px;height:40px;border-radius:12px;background:#EBF0FF;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0046FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div style="flex:1;min-width:0;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span style="font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;background:#EBF0FF;color:#0046FF;">따라하기 알림</span>
+                <span style="width:6px;height:6px;border-radius:50%;background:#0046FF;"></span>
+              </div>
+              <span style="font-size:12px;color:#9CA3AF;flex-shrink:0;">2시간 전</span>
+            </div>
+            <p style="font-size:14px;color:#1F2937;margin-bottom:8px;">주식고수박영희님이 SK하이닉스를 192,500원에 매수했습니다.</p>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px;background:#fff;border:1px solid #F3F4F6;border-radius:12px;">
+              <span style="font-size:12px;font-weight:700;padding:4px 8px;border-radius:8px;background:#FEE2E2;color:#DC2626;">매수</span>
+              <span style="font-size:14px;font-weight:600;color:#1F2937;">SK하이닉스</span>
+              <span style="font-size:14px;color:#6B7280;">192,500원</span>
+              <span style="font-size:14px;color:#9CA3AF;">3주</span>
+              <button style="margin-left:auto;padding:6px 12px;border-radius:8px;background:#0046FF;color:#fff;font-size:12px;font-weight:500;border:none;cursor:pointer;">내역 보기</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Unread: execution -->
+        <div style="display:flex;align-items:flex-start;gap:16px;padding:20px 24px;border-top:1px solid #F9FAFB;background:#F0F5FF;cursor:pointer;">
+          <div style="width:40px;height:40px;border-radius:12px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span style="font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;background:#F0FDF4;color:#16A34A;">주문 체결</span>
+                <span style="width:6px;height:6px;border-radius:50%;background:#0046FF;"></span>
+              </div>
+              <span style="font-size:12px;color:#9CA3AF;flex-shrink:0;">4시간 전</span>
+            </div>
+            <p style="font-size:14px;color:#1F2937;">삼성전자 매수 주문이 73,400원에 체결되었습니다.</p>
+          </div>
+        </div>
+
+        <!-- Read: copy trade -->
+        <div style="display:flex;align-items:flex-start;gap:16px;padding:20px 24px;border-top:1px solid #F9FAFB;cursor:pointer;">
+          <div style="width:40px;height:40px;border-radius:12px;background:#EBF0FF;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0046FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div style="flex:1;min-width:0;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+              <span style="font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;background:#EBF0FF;color:#0046FF;">따라하기 알림</span>
+              <span style="font-size:12px;color:#9CA3AF;flex-shrink:0;">1일 전</span>
+            </div>
+            <p style="font-size:14px;color:#1F2937;margin-bottom:8px;">주식고수박영희님이 NAVER를 191,500원에 매도했습니다.</p>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px;background:#F9FAFB;border:1px solid #F3F4F6;border-radius:12px;">
+              <span style="font-size:12px;font-weight:700;padding:4px 8px;border-radius:8px;background:#DBEAFE;color:#1D4ED8;">매도</span>
+              <span style="font-size:14px;font-weight:600;color:#1F2937;">NAVER</span>
+              <span style="font-size:14px;color:#6B7280;">191,500원</span>
+              <span style="font-size:14px;color:#9CA3AF;">5주</span>
+              <button style="margin-left:auto;padding:6px 12px;border-radius:8px;background:#0046FF;color:#fff;font-size:12px;font-weight:500;border:none;cursor:pointer;">내역 보기</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Read: execution -->
+        <div style="display:flex;align-items:flex-start;gap:16px;padding:20px 24px;border-top:1px solid #F9FAFB;cursor:pointer;">
+          <div style="width:40px;height:40px;border-radius:12px;background:#F0FDF4;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          </div>
+          <div style="flex:1;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+              <span style="font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;background:#F0FDF4;color:#16A34A;">주문 체결</span>
+              <span style="font-size:12px;color:#9CA3AF;">2일 전</span>
+            </div>
+            <p style="font-size:14px;color:#1F2937;">KB금융 매수 주문이 87,200원에 체결되었습니다.</p>
+          </div>
+        </div>
+
+        <!-- Read: copy trade -->
+        <div style="display:flex;align-items:flex-start;gap:16px;padding:20px 24px;border-top:1px solid #F9FAFB;cursor:pointer;">
+          <div style="width:40px;height:40px;border-radius:12px;background:#EBF0FF;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0046FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div style="flex:1;min-width:0;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;">
+              <span style="font-size:12px;font-weight:700;padding:2px 8px;border-radius:999px;background:#EBF0FF;color:#0046FF;">따라하기 알림</span>
+              <span style="font-size:12px;color:#9CA3AF;">3일 전</span>
+            </div>
+            <p style="font-size:14px;color:#1F2937;margin-bottom:8px;">주식고수박영희님이 삼성전자를 72,800원에 매수했습니다.</p>
+            <div style="display:flex;align-items:center;gap:12px;padding:12px;background:#F9FAFB;border:1px solid #F3F4F6;border-radius:12px;">
+              <span style="font-size:12px;font-weight:700;padding:4px 8px;border-radius:8px;background:#FEE2E2;color:#DC2626;">매수</span>
+              <span style="font-size:14px;font-weight:600;color:#1F2937;">삼성전자</span>
+              <span style="font-size:14px;color:#6B7280;">72,800원</span>
+              <span style="font-size:14px;color:#9CA3AF;">10주</span>
+              <button style="margin-left:auto;padding:6px 12px;border-radius:8px;background:#0046FF;color:#fff;font-size:12px;font-weight:500;border:none;cursor:pointer;">내역 보기</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+</div>
+</body>
+</html>
