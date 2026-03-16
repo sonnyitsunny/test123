@@ -1,7 +1,7 @@
 import type {
   Stock, Holding, Portfolio, User, RankingUser,
   TradeHistory, TradeJournal, Comment, Notification,
-  MentorRelation, MarketIndex, PricePoint
+  MentorRelation, MarketIndex, PricePoint, PendingOrder
 } from '@/types';
 
 export const MARKET_INDICES: MarketIndex[] = [
@@ -406,3 +406,11 @@ export function generatePriceHistory(basePrice: number, days: number = 30): Pric
   }
   return points;
 }
+
+export const MY_PENDING_ORDERS: PendingOrder[] = [
+  { id: 'po1', type: 'buy', stockId: '1', stock: STOCKS[0], quantity: 5, price: 72000, totalAmount: 360000, orderType: '지정가', createdAt: '2026-03-16T09:30:00' },
+  { id: 'po2', type: 'buy', stockId: '1', stock: STOCKS[0], quantity: 3, price: 71500, totalAmount: 214500, orderType: '지정가', createdAt: '2026-03-16T10:15:00' },
+  { id: 'po3', type: 'sell', stockId: '1', stock: STOCKS[0], quantity: 5, price: 76000, totalAmount: 380000, orderType: '지정가', createdAt: '2026-03-16T11:00:00' },
+  { id: 'po4', type: 'buy', stockId: '2', stock: STOCKS[1], quantity: 2, price: 185000, totalAmount: 370000, orderType: '지정가', createdAt: '2026-03-16T10:00:00' },
+  { id: 'po5', type: 'sell', stockId: '10', stock: STOCKS[9], quantity: 4, price: 198000, totalAmount: 792000, orderType: '지정가', createdAt: '2026-03-16T09:45:00' },
+];

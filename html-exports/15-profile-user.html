@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>투자자 프로필 - 주식마스터 - 모의투자</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .nav-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 12px; transition: all .15s; color: #6b7280; font-size: 14px; text-decoration: none; }
+    .nav-item:hover { background: #f9fafb; color: #1f2937; }
+    .nav-active { background-color: #0046FF !important; color: white !important; font-weight: 600; }
+    .tab-active { color: #0046FF; border-bottom: 2px solid #0046FF; font-weight: 600; }
+  </style>
+</head>
+<body class="bg-gray-50 flex min-h-screen">
+
+  <!-- Sidebar -->
+  <aside class="fixed left-0 top-0 h-screen bg-white border-r border-gray-100 flex flex-col z-30" style="width:240px">
+    <div class="px-6 py-5 border-b border-gray-100">
+      <a href="04-home.html" class="flex items-center gap-2.5" style="text-decoration:none">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background-color:#0046FF">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <div>
+          <p class="text-sm font-bold text-gray-900">모의투자</p>
+          <p class="text-gray-400" style="font-size:10px">KOSPI200 · 멘토멘티</p>
+        </div>
+      </a>
+    </div>
+    <nav class="flex-1 px-3 py-4 space-y-0.5 overflow-y-auto">
+      <a href="04-home.html" class="nav-item">홈</a>
+      <a href="05-trading.html" class="nav-item">모의투자</a>
+      <a href="07-account.html" class="nav-item">내 계좌</a>
+      <a href="08-trade-journal.html" class="nav-item">매매일지</a>
+      <a href="10-users.html" class="nav-item">유저 목록</a>
+      <a href="13-notifications.html" class="nav-item">알림<span class="ml-auto text-white font-bold flex items-center justify-center rounded-full" style="font-size:10px;width:16px;height:16px;background:#ef4444">3</span></a>
+      <a href="11-mentor.html" class="nav-item">나의 멘토</a>
+      <a href="12-mentees.html" class="nav-item">나의 멘티</a>
+      <a href="14-profile.html" class="nav-item nav-active">프로필</a>
+    </nav>
+    <div class="px-3 py-4 border-t border-gray-100">
+      <a href="14-profile.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50" style="text-decoration:none">
+        <div class="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold" style="background-color:#0046FF">투</div>
+        <div>
+          <p class="text-sm font-semibold text-gray-800">투자왕김철수</p>
+          <p class="text-xs text-red-500 font-medium">+12.5%</p>
+        </div>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main style="margin-left:240px; flex:1">
+    <div class="p-8 max-w-6xl">
+
+      <!-- Back + Header -->
+      <div class="flex items-center gap-3 mb-6">
+        <a href="10-users.html" class="flex items-center gap-1.5 text-sm text-gray-500 hover:text-gray-800 transition-colors" style="text-decoration:none">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+          유저 목록
+        </a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d1d5db" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+        <h1 class="text-xl font-bold text-gray-900">투자자 프로필</h1>
+      </div>
+
+      <!-- 4-col Grid -->
+      <div class="grid grid-cols-4 gap-5">
+
+        <!-- Left: Profile Card -->
+        <div class="col-span-1">
+          <div class="bg-white rounded-2xl border border-gray-100 p-5 sticky top-8">
+            <!-- Mentor Badge + Avatar -->
+            <div class="flex flex-col items-center mb-5">
+              <div class="relative mb-3">
+                <div class="w-20 h-20 rounded-full flex items-center justify-center text-white text-3xl font-bold" style="background-color:#F59E0B">주</div>
+                <span class="absolute -bottom-1 -right-1 px-2 py-0.5 text-xs font-bold rounded-full text-white shadow" style="background-color:#F59E0B">멘토</span>
+              </div>
+              <h2 class="text-base font-bold text-gray-900">주식마스터</h2>
+            </div>
+
+            <!-- Follow stats -->
+            <div class="flex items-center justify-center gap-6 mb-4 pb-4 border-b border-gray-100">
+              <div class="text-center">
+                <p class="text-base font-bold text-gray-900">542</p>
+                <p class="text-xs text-gray-400">팔로워</p>
+              </div>
+              <div class="w-px h-8 bg-gray-100"></div>
+              <div class="text-center">
+                <p class="text-base font-bold text-gray-900">5</p>
+                <p class="text-xs text-gray-400">팔로잉</p>
+              </div>
+            </div>
+
+            <!-- Returns -->
+            <div class="space-y-2 mb-5">
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-gray-400">총 수익률</span>
+                <span class="text-sm font-bold text-red-500">+48.3%</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-gray-400">총 수익</span>
+                <span class="text-sm font-bold text-gray-900">+1850만</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-gray-400">주간</span>
+                <span class="text-sm font-bold text-red-500">+8.2%</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-xs text-gray-400">월간</span>
+                <span class="text-sm font-bold text-red-500">+18.4%</span>
+              </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="space-y-2">
+              <button class="w-full py-2 text-sm font-semibold text-white rounded-xl" style="background-color:#0046FF">팔로잉</button>
+            </div>
+
+            <!-- My mentor label -->
+            <div class="mt-3 flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl" style="background-color:#fffbeb">
+              <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <span class="text-xs font-semibold" style="color:#d97706">현재 나의 멘토입니다</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Tabs + journals -->
+        <div class="col-span-3">
+          <!-- Tabs -->
+          <div class="flex gap-0 border-b border-gray-200 mb-5 bg-white rounded-t-2xl px-2">
+            <button class="px-5 py-3 text-sm tab-active" style="margin-bottom:-1px">매매일지</button>
+            <button class="px-5 py-3 text-sm text-gray-500 hover:text-gray-800" style="margin-bottom:-1px">매매내역</button>
+            <button class="px-5 py-3 text-sm text-gray-500 hover:text-gray-800" style="margin-bottom:-1px">포트폴리오</button>
+          </div>
+
+          <!-- Journal Cards (mentor's journals from 11-mentor.html) -->
+          <div class="space-y-3">
+
+            <!-- Journal 1 -->
+            <div class="bg-white rounded-2xl border border-gray-100 p-5">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="px-2 py-0.5 text-xs font-bold rounded-md text-white" style="background-color:#ef4444">매수</span>
+                    <span class="text-sm font-bold text-gray-900">SK하이닉스</span>
+                    <span class="text-xs text-gray-400">20주</span>
+                    <span class="text-xs text-gray-400">·</span>
+                    <span class="text-xs text-gray-500 font-medium">185,000원</span>
+                    <span class="text-xs text-gray-300">·</span>
+                    <span class="text-xs text-gray-400">2025.03.09</span>
+                  </div>
+                  <p class="text-sm text-gray-600 leading-relaxed">HBM3E 양산 시작. AI 서버 수요 폭발적 증가 구간. 목표가 250,000원.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Journal 2 -->
+            <div class="bg-white rounded-2xl border border-gray-100 p-5">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="px-2 py-0.5 text-xs font-bold rounded-md text-white" style="background-color:#0046FF">매도</span>
+                    <span class="text-sm font-bold text-gray-900">삼성전자</span>
+                    <span class="text-xs text-gray-400">30주</span>
+                    <span class="text-xs text-gray-400">·</span>
+                    <span class="text-xs text-gray-500 font-medium">74,000원</span>
+                    <span class="text-xs text-gray-300">·</span>
+                    <span class="text-xs text-gray-400">2025.03.07</span>
+                  </div>
+                  <p class="text-sm text-gray-600 leading-relaxed">목표가 도달. 반도체 섹터 비중 축소, SK하이닉스로 교체 목적.</p>
+                </div>
+                <div class="text-right shrink-0">
+                  <p class="text-base font-bold text-red-500">+48만원</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Journal 3 -->
+            <div class="bg-white rounded-2xl border border-gray-100 p-5">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="px-2 py-0.5 text-xs font-bold rounded-md text-white" style="background-color:#ef4444">매수</span>
+                    <span class="text-sm font-bold text-gray-900">삼성바이오로직스</span>
+                    <span class="text-xs text-gray-400">5주</span>
+                    <span class="text-xs text-gray-400">·</span>
+                    <span class="text-xs text-gray-500 font-medium">930,000원</span>
+                    <span class="text-xs text-gray-300">·</span>
+                    <span class="text-xs text-gray-400">2025.03.05</span>
+                  </div>
+                  <p class="text-sm text-gray-600 leading-relaxed">바이오시밀러 미국 FDA 승인 기대.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Journal 4 -->
+            <div class="bg-white rounded-2xl border border-gray-100 p-5">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="px-2 py-0.5 text-xs font-bold rounded-md text-white" style="background-color:#ef4444">매수</span>
+                    <span class="text-sm font-bold text-gray-900">셀트리온</span>
+                    <span class="text-xs text-gray-400">15주</span>
+                    <span class="text-xs text-gray-400">·</span>
+                    <span class="text-xs text-gray-500 font-medium">170,000원</span>
+                    <span class="text-xs text-gray-300">·</span>
+                    <span class="text-xs text-gray-400">2025.03.02</span>
+                  </div>
+                  <p class="text-sm text-gray-600 leading-relaxed">코스닥 바이오 중 가장 탄탄한 파이프라인.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Journal 5 -->
+            <div class="bg-white rounded-2xl border border-gray-100 p-5">
+              <div class="flex items-start justify-between gap-4">
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="px-2 py-0.5 text-xs font-bold rounded-md text-white" style="background-color:#0046FF">매도</span>
+                    <span class="text-sm font-bold text-gray-900">현대차</span>
+                    <span class="text-xs text-gray-400">20주</span>
+                    <span class="text-xs text-gray-400">·</span>
+                    <span class="text-xs text-gray-500 font-medium">245,000원</span>
+                    <span class="text-xs text-gray-300">·</span>
+                    <span class="text-xs text-gray-400">2025.02.28</span>
+                  </div>
+                  <p class="text-sm text-gray-600 leading-relaxed">미국 IRA 불확실성 해소. 목표가 도달하여 익절.</p>
+                </div>
+                <div class="text-right shrink-0">
+                  <p class="text-base font-bold text-red-500">+94만원</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

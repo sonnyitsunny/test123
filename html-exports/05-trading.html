@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>모의투자 - 종목 목록</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}.nav-item{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;transition:all .15s;color:#6b7280;font-size:14px;text-decoration:none}.nav-item:hover{background:#f9fafb;color:#1f2937}.nav-active{background-color:#0046FF!important;color:white!important;font-weight:600}</style>
+</head>
+<body class="bg-gray-50 flex min-h-screen">
+  <!-- Sidebar -->
+  <aside class="fixed left-0 top-0 h-screen bg-white border-r border-gray-100 flex flex-col z-30" style="width:240px">
+    <div class="px-6 py-5 border-b border-gray-100">
+      <a href="04-home.html" class="flex items-center gap-2.5" style="text-decoration:none">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background-color:#0046FF">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <div><p class="text-sm font-bold text-gray-900">모의투자</p><p class="text-gray-400" style="font-size:10px">KOSPI200 · 멘토멘티</p></div>
+      </a>
+    </div>
+    <nav class="flex-1 px-3 py-4 space-y-0.5">
+      <a href="04-home.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>홈</a>
+      <a href="05-trading.html" class="nav-item nav-active"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>모의투자</a>
+      <a href="07-account.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>내 계좌</a>
+      <a href="08-trade-journal.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>매매일지</a>
+      <a href="10-users.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>유저 목록</a>
+      <a href="13-notifications.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>알림<span class="ml-auto text-white font-bold flex items-center justify-center rounded-full" style="font-size:10px;width:16px;height:16px;background:#ef4444">3</span></a>
+      <a href="11-mentor.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>나의 멘토</a>
+      <a href="12-mentees.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>나의 멘티</a>
+      <a href="14-profile.html" class="nav-item"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>프로필</a>
+    </nav>
+    <div class="px-3 py-4 border-t border-gray-100">
+      <a href="14-profile.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50" style="text-decoration:none">
+        <div class="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold" style="background-color:#0046FF">투</div>
+        <div class="flex-1 min-w-0"><p class="text-sm font-semibold text-gray-800">투자왕김철수</p><p class="text-xs text-red-500 font-medium">+12.5%</p></div>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main style="margin-left:240px;flex:1">
+    <div class="p-8 max-w-6xl">
+      <div class="mb-8">
+        <h1 class="text-2xl font-bold text-gray-900 mb-1">모의투자</h1>
+        <p class="text-sm text-gray-400">KOSPI200 종목으로 실전 같은 모의 매매를 경험하세요</p>
+      </div>
+
+      <!-- Market Indices -->
+      <div class="grid grid-cols-3 gap-4 mb-6">
+        <div class="bg-white rounded-2xl border border-gray-100 p-4">
+          <p class="text-xs text-gray-400 font-semibold mb-1">KOSPI</p>
+          <p class="text-2xl font-bold text-gray-900">2,648.73</p>
+          <p class="text-xs font-semibold text-red-500 mt-1">▲ +18.43 (+0.70%)</p>
+          <div class="mt-2 text-xs text-gray-400">고 2,651 · 저 2,629</div>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-100 p-4">
+          <p class="text-xs text-gray-400 font-semibold mb-1">KOSDAQ</p>
+          <p class="text-2xl font-bold text-gray-900">871.26</p>
+          <p class="text-xs font-semibold text-blue-600 mt-1">▼ -4.12 (-0.47%)</p>
+          <div class="mt-2 text-xs text-gray-400">고 876 · 저 869</div>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-100 p-4">
+          <p class="text-xs text-gray-400 font-semibold mb-1">USD/KRW</p>
+          <p class="text-2xl font-bold text-gray-900">1,342.50</p>
+          <p class="text-xs font-semibold text-blue-600 mt-1">▼ -2.50 (-0.19%)</p>
+          <div class="mt-2 text-xs text-gray-400">고 1,346 · 저 1,340</div>
+        </div>
+      </div>
+
+      <!-- Search + Filter + Sort -->
+      <div class="space-y-3 mb-4">
+        <div class="flex items-center gap-3">
+          <div class="flex items-center gap-2 bg-white border border-gray-100 rounded-xl px-3.5 py-2.5 w-64">
+            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" placeholder="종목명 또는 코드 검색" class="bg-transparent text-sm outline-none text-gray-800 placeholder-gray-400 w-full border-0" />
+          </div>
+          <div class="flex gap-1.5">
+            <button class="px-3.5 py-1.5 rounded-full text-xs font-semibold text-white" style="background-color:#0046FF">거래량순</button>
+            <button class="px-3.5 py-1.5 rounded-full text-xs font-semibold text-gray-500 bg-white border border-gray-100">상승순</button>
+            <button class="px-3.5 py-1.5 rounded-full text-xs font-semibold text-gray-500 bg-white border border-gray-100">하락순</button>
+            <button class="px-3.5 py-1.5 rounded-full text-xs font-semibold text-gray-500 bg-white border border-gray-100">고가순</button>
+          </div>
+        </div>
+        <div class="flex gap-1.5 flex-wrap">
+          <button class="px-3 py-1.5 rounded-full text-xs font-semibold text-white" style="background-color:#0046FF">전체</button>
+          <button class="px-3 py-1.5 rounded-full text-xs font-semibold text-gray-500 bg-white border border-gray-100">반도체</button>
+          <button class="px-3 py-1.5 rounded-full text-xs font-semibold text-gray-500 bg-white border border-gray-100">2차전지</button>
+          <button class="px-3 py-1.5 rounded-full text-xs font-semibold text-gray-500 bg-white border border-gray-100">바이오</button>
+          <button class="px-3 py-1.5 rounded-full text-xs font-semibold text-gray-500 bg-white border border-gray-100">자동차</button>
+          <button class="px-3 py-1.5 rounded-full text-xs font-semibold text-gray-500 bg-white border border-gray-100">IT</button>
+          <button class="px-3 py-1.5 rounded-full text-xs font-semibold text-gray-500 bg-white border border-gray-100">금융</button>
+          <button class="px-3 py-1.5 rounded-full text-xs font-semibold text-gray-500 bg-white border border-gray-100">철강</button>
+          <button class="px-3 py-1.5 rounded-full text-xs font-semibold text-gray-500 bg-white border border-gray-100">화학</button>
+          <button class="px-3 py-1.5 rounded-full text-xs font-semibold text-gray-500 bg-white border border-gray-100">통신</button>
+          <button class="px-3 py-1.5 rounded-full text-xs font-semibold text-gray-500 bg-white border border-gray-100">가전</button>
+          <button class="px-3 py-1.5 rounded-full text-xs font-semibold text-gray-500 bg-white border border-gray-100">건설</button>
+        </div>
+      </div>
+
+      <!-- Stock List -->
+      <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden">
+        <table class="w-full">
+          <thead class="bg-gray-50">
+            <tr class="text-xs text-gray-500">
+              <th class="text-left px-6 py-3.5 font-semibold">종목명</th>
+              <th class="text-center px-4 py-3.5 font-semibold">섹터</th>
+              <th class="text-right px-4 py-3.5 font-semibold">현재가</th>
+              <th class="text-right px-4 py-3.5 font-semibold">등락률</th>
+              <th class="text-right px-4 py-3.5 font-semibold">거래량</th>
+              <th class="text-right px-4 py-3.5 font-semibold">시가총액</th>
+              <th class="text-center px-6 py-3.5 font-semibold"></th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-50">
+            <!-- Row 1 -->
+            <tr class="hover:bg-gray-50">
+              <td class="px-6 py-3.5">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-bold" style="background-color:hsl(47,65%,50%)">삼</div>
+                  <div>
+                    <div class="flex items-center gap-2">
+                      <p class="text-sm font-semibold text-gray-800">삼성전자</p>
+                      <span class="text-xs px-1.5 py-0.5 rounded-full bg-blue-50 text-blue-600 font-semibold">보유</span>
+                    </div>
+                    <p class="text-xs text-gray-400">005930</p>
+                  </div>
+                </div>
+              </td>
+              <td class="px-4 py-3.5 text-center"><span class="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600">반도체</span></td>
+              <td class="px-4 py-3.5 text-right"><span class="text-sm font-bold text-gray-900">73,400원</span></td>
+              <td class="px-4 py-3.5 text-right"><div class="flex flex-col items-end text-red-500"><span class="text-sm font-bold">+1.24%</span><span class="text-xs">+900</span></div></td>
+              <td class="px-4 py-3.5 text-right text-sm text-gray-500">1284만</td>
+              <td class="px-4 py-3.5 text-right text-sm text-gray-500">4382000억원</td>
+              <td class="px-6 py-3.5 text-center"><a href="06-trading-detail.html" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold text-white" style="background-color:#0046FF;text-decoration:none">거래 ›</a></td>
+            </tr>
+            <!-- Row 2 -->
+            <tr class="hover:bg-gray-50">
+              <td class="px-6 py-3.5">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-bold" style="background-color:hsl(94,65%,50%)">S</div>
+                  <div><p class="text-sm font-semibold text-gray-800">SK하이닉스</p><p class="text-xs text-gray-400">000660</p></div>
+                </div>
+              </td>
+              <td class="px-4 py-3.5 text-center"><span class="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600">반도체</span></td>
+              <td class="px-4 py-3.5 text-right"><span class="text-sm font-bold text-gray-900">192,500원</span></td>
+              <td class="px-4 py-3.5 text-right"><div class="flex flex-col items-end text-red-500"><span class="text-sm font-bold">+2.39%</span><span class="text-xs">+4,500</span></div></td>
+              <td class="px-4 py-3.5 text-right text-sm text-gray-500">324만</td>
+              <td class="px-4 py-3.5 text-right text-sm text-gray-500">139800억원</td>
+              <td class="px-6 py-3.5 text-center"><a href="06-trading-detail.html" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold text-white" style="background-color:#0046FF;text-decoration:none">거래 ›</a></td>
+            </tr>
+            <!-- Row 3 -->
+            <tr class="hover:bg-gray-50">
+              <td class="px-6 py-3.5">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-bold" style="background-color:hsl(517,65%,50%)">카</div>
+                  <div><p class="text-sm font-semibold text-gray-800">카카오</p><p class="text-xs text-gray-400">035720</p></div>
+                </div>
+              </td>
+              <td class="px-4 py-3.5 text-center"><span class="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600">IT</span></td>
+              <td class="px-4 py-3.5 text-right"><span class="text-sm font-bold text-gray-900">44,850원</span></td>
+              <td class="px-4 py-3.5 text-right"><div class="flex flex-col items-end text-blue-600"><span class="text-sm font-bold">-1.21%</span><span class="text-xs">-550</span></div></td>
+              <td class="px-4 py-3.5 text-right text-sm text-gray-500">234만</td>
+              <td class="px-4 py-3.5 text-right text-sm text-gray-500">19500억원</td>
+              <td class="px-6 py-3.5 text-center"><a href="06-trading-detail.html" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold text-white" style="background-color:#0046FF;text-decoration:none">거래 ›</a></td>
+            </tr>
+            <!-- Row 4 -->
+            <tr class="hover:bg-gray-50">
+              <td class="px-6 py-3.5">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-bold" style="background-color:hsl(940,65%,50%)">에</div>
+                  <div><p class="text-sm font-semibold text-gray-800">에코프로비엠</p><p class="text-xs text-gray-400">247540</p></div>
+                </div>
+              </td>
+              <td class="px-4 py-3.5 text-center"><span class="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600">2차전지</span></td>
+              <td class="px-4 py-3.5 text-right"><span class="text-sm font-bold text-gray-900">148,500원</span></td>
+              <td class="px-4 py-3.5 text-right"><div class="flex flex-col items-end text-blue-600"><span class="text-sm font-bold">-3.19%</span><span class="text-xs">-4,900</span></div></td>
+              <td class="px-4 py-3.5 text-right text-sm text-gray-500">123만</td>
+              <td class="px-4 py-3.5 text-right text-sm text-gray-500">13200억원</td>
+              <td class="px-6 py-3.5 text-center"><a href="06-trading-detail.html" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold text-white" style="background-color:#0046FF;text-decoration:none">거래 ›</a></td>
+            </tr>
+            <!-- Row 5 -->
+            <tr class="hover:bg-gray-50">
+              <td class="px-6 py-3.5">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-bold" style="background-color:hsl(611,65%,50%)">셀</div>
+                  <div><p class="text-sm font-semibold text-gray-800">셀트리온</p><p class="text-xs text-gray-400">068270</p></div>
+                </div>
+              </td>
+              <td class="px-4 py-3.5 text-center"><span class="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600">바이오</span></td>
+              <td class="px-4 py-3.5 text-right"><span class="text-sm font-bold text-gray-900">178,500원</span></td>
+              <td class="px-4 py-3.5 text-right"><div class="flex flex-col items-end text-red-500"><span class="text-sm font-bold">+2.29%</span><span class="text-xs">+4,000</span></div></td>
+              <td class="px-4 py-3.5 text-right text-sm text-gray-500">98만</td>
+              <td class="px-4 py-3.5 text-right text-sm text-gray-500">24300억원</td>
+              <td class="px-6 py-3.5 text-center"><a href="06-trading-detail.html" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold text-white" style="background-color:#0046FF;text-decoration:none">거래 ›</a></td>
+            </tr>
+            <!-- Row 6 -->
+            <tr class="hover:bg-gray-50">
+              <td class="px-6 py-3.5">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-bold" style="background-color:hsl(658,65%,50%)">기</div>
+                  <div><p class="text-sm font-semibold text-gray-800">기아</p><p class="text-xs text-gray-400">000270</p></div>
+                </div>
+              </td>
+              <td class="px-4 py-3.5 text-center"><span class="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600">자동차</span></td>
+              <td class="px-4 py-3.5 text-right"><span class="text-sm font-bold text-gray-900">108,500원</span></td>
+              <td class="px-4 py-3.5 text-right"><div class="flex flex-col items-end text-red-500"><span class="text-sm font-bold">+2.07%</span><span class="text-xs">+2,200</span></div></td>
+              <td class="px-4 py-3.5 text-right text-sm text-gray-500">124만</td>
+              <td class="px-4 py-3.5 text-right text-sm text-gray-500">43800억원</td>
+              <td class="px-6 py-3.5 text-center"><a href="06-trading-detail.html" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold text-white" style="background-color:#0046FF;text-decoration:none">거래 ›</a></td>
+            </tr>
+            <!-- More rows abbreviated -->
+            <tr class="hover:bg-gray-50">
+              <td class="px-6 py-3.5">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-bold" style="background-color:hsl(235,65%,50%)">현</div>
+                  <div><p class="text-sm font-semibold text-gray-800">현대차</p><p class="text-xs text-gray-400">005380</p></div>
+                </div>
+              </td>
+              <td class="px-4 py-3.5 text-center"><span class="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600">자동차</span></td>
+              <td class="px-4 py-3.5 text-right"><span class="text-sm font-bold text-gray-900">241,500원</span></td>
+              <td class="px-4 py-3.5 text-right"><div class="flex flex-col items-end text-red-500"><span class="text-sm font-bold">+1.68%</span><span class="text-xs">+4,000</span></div></td>
+              <td class="px-4 py-3.5 text-right text-sm text-gray-500">84만</td>
+              <td class="px-4 py-3.5 text-right text-sm text-gray-500">51500억원</td>
+              <td class="px-6 py-3.5 text-center"><a href="06-trading-detail.html" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold text-white" style="background-color:#0046FF;text-decoration:none">거래 ›</a></td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="px-6 py-3.5">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-bold" style="background-color:hsl(564,65%,50%)">K</div>
+                  <div><p class="text-sm font-semibold text-gray-800">KB금융</p><p class="text-xs text-gray-400">105560</p></div>
+                </div>
+              </td>
+              <td class="px-4 py-3.5 text-center"><span class="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600">금융</span></td>
+              <td class="px-4 py-3.5 text-right"><span class="text-sm font-bold text-gray-900">87,200원</span></td>
+              <td class="px-4 py-3.5 text-right"><div class="flex flex-col items-end text-red-500"><span class="text-sm font-bold">+0.92%</span><span class="text-xs">+800</span></div></td>
+              <td class="px-4 py-3.5 text-right text-sm text-gray-500">72만</td>
+              <td class="px-4 py-3.5 text-right text-sm text-gray-500">34800억원</td>
+              <td class="px-6 py-3.5 text-center"><a href="06-trading-detail.html" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold text-white" style="background-color:#0046FF;text-decoration:none">거래 ›</a></td>
+            </tr>
+            <tr class="hover:bg-gray-50">
+              <td class="px-6 py-3.5">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-xs font-bold" style="background-color:hsl(470,65%,50%)">N</div>
+                  <div><p class="text-sm font-semibold text-gray-800">NAVER</p><p class="text-xs text-gray-400">035420</p></div>
+                </div>
+              </td>
+              <td class="px-4 py-3.5 text-center"><span class="text-xs px-2 py-1 rounded-full bg-gray-100 text-gray-600">IT</span></td>
+              <td class="px-4 py-3.5 text-right"><span class="text-sm font-bold text-gray-900">192,000원</span></td>
+              <td class="px-4 py-3.5 text-right"><div class="flex flex-col items-end text-red-500"><span class="text-sm font-bold">+0.79%</span><span class="text-xs">+1,500</span></div></td>
+              <td class="px-4 py-3.5 text-right text-sm text-gray-500">67만</td>
+              <td class="px-4 py-3.5 text-right text-sm text-gray-500">31500억원</td>
+              <td class="px-6 py-3.5 text-center"><a href="06-trading-detail.html" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold text-white" style="background-color:#0046FF;text-decoration:none">거래 ›</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

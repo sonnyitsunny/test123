@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>나의 멘티 - 모의투자</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .nav-item { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 12px; transition: all .15s; color: #6b7280; font-size: 14px; text-decoration: none; }
+    .nav-item:hover { background: #f9fafb; color: #1f2937; }
+    .nav-active { background-color: #0046FF !important; color: white !important; font-weight: 600; }
+    .tab-active { color: #0046FF; border-bottom: 2px solid #0046FF; font-weight: 600; }
+  </style>
+</head>
+<body class="bg-gray-50 flex min-h-screen">
+
+  <!-- Sidebar -->
+  <aside class="fixed left-0 top-0 h-screen bg-white border-r border-gray-100 flex flex-col z-30" style="width:240px">
+    <div class="px-6 py-5 border-b border-gray-100">
+      <a href="04-home.html" class="flex items-center gap-2.5" style="text-decoration:none">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background-color:#0046FF">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        </div>
+        <div>
+          <p class="text-sm font-bold text-gray-900">모의투자</p>
+          <p class="text-gray-400" style="font-size:10px">KOSPI200 · 멘토멘티</p>
+        </div>
+      </a>
+    </div>
+    <nav class="flex-1 px-3 py-4 space-y-0.5 overflow-y-auto">
+      <a href="04-home.html" class="nav-item">홈</a>
+      <a href="05-trading.html" class="nav-item">모의투자</a>
+      <a href="07-account.html" class="nav-item">내 계좌</a>
+      <a href="08-trade-journal.html" class="nav-item">매매일지</a>
+      <a href="10-users.html" class="nav-item">유저 목록</a>
+      <a href="13-notifications.html" class="nav-item">알림<span class="ml-auto text-white font-bold flex items-center justify-center rounded-full" style="font-size:10px;width:16px;height:16px;background:#ef4444">3</span></a>
+      <a href="11-mentor.html" class="nav-item">나의 멘토</a>
+      <a href="12-mentees.html" class="nav-item nav-active">나의 멘티</a>
+      <a href="14-profile.html" class="nav-item">프로필</a>
+    </nav>
+    <div class="px-3 py-4 border-t border-gray-100">
+      <a href="14-profile.html" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-gray-50" style="text-decoration:none">
+        <div class="w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold" style="background-color:#0046FF">투</div>
+        <div>
+          <p class="text-sm font-semibold text-gray-800">투자왕김철수</p>
+          <p class="text-xs text-red-500 font-medium">+12.5%</p>
+        </div>
+      </a>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main style="margin-left:240px; flex:1">
+    <div class="p-8 max-w-5xl">
+
+      <!-- Header -->
+      <div class="flex items-center gap-3 mb-6">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0046FF" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        <div>
+          <h1 class="text-2xl font-bold text-gray-900">나의 멘티</h1>
+          <p class="text-sm text-gray-400">총 3명의 멘티</p>
+        </div>
+      </div>
+
+      <!-- Two-column layout -->
+      <div class="flex gap-5">
+
+        <!-- Left: Mentee list -->
+        <div class="shrink-0" style="width:224px">
+          <div class="bg-white rounded-2xl border border-gray-100 overflow-hidden">
+            <!-- Mentee 1 (selected) -->
+            <button class="w-full flex items-center gap-3 px-4 py-3.5 text-left transition-colors" style="background-color:#EBF0FF; border-left:3px solid #0046FF">
+              <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0" style="background-color:#6366f1">초</div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-semibold text-gray-900 truncate">초보투자자</p>
+                <p class="text-xs text-red-500 font-medium">+3.2%</p>
+              </div>
+            </button>
+            <!-- Mentee 2 -->
+            <button class="w-full flex items-center gap-3 px-4 py-3.5 text-left border-t border-gray-50 hover:bg-gray-50 transition-colors" style="border-left:3px solid transparent">
+              <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0" style="background-color:#10b981">주</div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-semibold text-gray-700 truncate">주식공부중</p>
+                <p class="text-xs text-red-500 font-medium">+2.1%</p>
+              </div>
+            </button>
+            <!-- Mentee 3 -->
+            <button class="w-full flex items-center gap-3 px-4 py-3.5 text-left border-t border-gray-50 hover:bg-gray-50 transition-colors" style="border-left:3px solid transparent">
+              <div class="w-9 h-9 rounded-full flex items-center justify-center text-white text-sm font-bold shrink-0" style="background-color:#f59e0b">부</div>
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-semibold text-gray-700 truncate">부자되자</p>
+                <p class="text-xs text-red-500 font-medium">+8.7%</p>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Mentee detail -->
+        <div class="flex-1 min-w-0">
+
+          <!-- Profile card -->
+          <div class="bg-white rounded-2xl border border-gray-100 p-5 mb-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-full flex items-center justify-center text-white text-lg font-bold shrink-0" style="background-color:#6366f1">초</div>
+                <div>
+                  <p class="text-base font-bold text-gray-900">초보투자자</p>
+                  <p class="text-xs text-gray-400">팔로워 5명</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-6">
+                <div class="text-center">
+                  <p class="text-xs text-gray-400 mb-0.5">총 수익</p>
+                  <p class="text-sm font-bold text-gray-900">+12만원</p>
+                </div>
+                <div class="text-center">
+                  <p class="text-xs text-gray-400 mb-0.5">수익률</p>
+                  <p class="text-sm font-bold text-red-500">+3.2%</p>
+                </div>
+                <a href="15-profile-user.html" class="px-3 py-1.5 text-sm font-semibold rounded-xl border border-gray-200 text-gray-700 hover:bg-gray-50 transition-colors" style="text-decoration:none">프로필 보기</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tabs -->
+          <div class="flex gap-0 border-b border-gray-200 mb-4">
+            <button class="px-5 py-3 text-sm tab-active" style="margin-bottom:-1px">매매일지</button>
+            <button class="px-5 py-3 text-sm text-gray-500 hover:text-gray-800" style="margin-bottom:-1px">매매내역</button>
+            <button class="px-5 py-3 text-sm text-gray-500 hover:text-gray-800" style="margin-bottom:-1px">포트폴리오</button>
+          </div>
+
+          <!-- Journal list -->
+          <div class="space-y-3">
+
+            <!-- Journal 1: 삼성전자 매수 -->
+            <div class="bg-white rounded-2xl border border-gray-100 p-5">
+              <div class="flex items-start justify-between gap-4 mb-3">
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="px-2 py-0.5 text-xs font-bold rounded-md text-white" style="background-color:#ef4444">매수</span>
+                    <span class="text-sm font-bold text-gray-900">삼성전자</span>
+                    <span class="text-xs text-gray-400">10주</span>
+                    <span class="text-xs text-gray-400">·</span>
+                    <span class="text-xs text-gray-500 font-medium">70,000원</span>
+                    <span class="text-xs text-gray-300">·</span>
+                    <span class="text-xs text-gray-400">2025.03.06</span>
+                  </div>
+                  <p class="text-sm text-gray-600 leading-relaxed">멘토님이 삼성전자 사셨길래 저도 샀어요.</p>
+                </div>
+              </div>
+              <!-- Mentor feedback input -->
+              <div class="pt-3 border-t border-gray-50">
+                <p class="text-xs font-semibold text-gray-400 mb-2">멘토 피드백</p>
+                <div class="flex gap-2">
+                  <div class="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0" style="background-color:#0046FF">투</div>
+                  <input type="text" placeholder="피드백을 남겨주세요..." class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:border-blue-400 focus:bg-white transition-colors" />
+                  <button class="px-3 py-2 text-xs font-semibold text-white rounded-xl shrink-0" style="background-color:#0046FF">등록</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Journal 2: KB금융 매수 -->
+            <div class="bg-white rounded-2xl border border-gray-100 p-5">
+              <div class="flex items-start justify-between gap-4 mb-3">
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="px-2 py-0.5 text-xs font-bold rounded-md text-white" style="background-color:#ef4444">매수</span>
+                    <span class="text-sm font-bold text-gray-900">KB금융</span>
+                    <span class="text-xs text-gray-400">15주</span>
+                    <span class="text-xs text-gray-400">·</span>
+                    <span class="text-xs text-gray-500 font-medium">84,000원</span>
+                    <span class="text-xs text-gray-300">·</span>
+                    <span class="text-xs text-gray-400">2025.02.20</span>
+                  </div>
+                  <p class="text-sm text-gray-600 leading-relaxed">배당주가 안정적이라고 해서 KB금융 매수했습니다.</p>
+                </div>
+              </div>
+              <!-- Mentor feedback input -->
+              <div class="pt-3 border-t border-gray-50">
+                <p class="text-xs font-semibold text-gray-400 mb-2">멘토 피드백</p>
+                <div class="flex gap-2">
+                  <div class="w-7 h-7 rounded-full flex items-center justify-center text-white text-xs font-bold shrink-0" style="background-color:#0046FF">투</div>
+                  <input type="text" placeholder="피드백을 남겨주세요..." class="flex-1 px-3 py-2 text-sm border border-gray-200 rounded-xl bg-gray-50 focus:outline-none focus:border-blue-400 focus:bg-white transition-colors" />
+                  <button class="px-3 py-2 text-xs font-semibold text-white rounded-xl shrink-0" style="background-color:#0046FF">등록</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>

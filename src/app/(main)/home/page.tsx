@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { TrendingUp, TrendingDown, Star, ChevronRight, Bell } from 'lucide-react';
 import { MARKET_INDICES, MY_PORTFOLIO, RANKING_USERS, STOCKS } from '@/data/dummy';
+import MarketIndexCard from '@/components/MarketIndexCard';
 
 function fmt(n: number) {
   if (Math.abs(n) >= 100000000) return `${(n / 100000000).toFixed(1)}억`;
@@ -38,19 +39,7 @@ export default function HomePage() {
       {/* Market Indices */}
       <div className="grid grid-cols-3 gap-4 mb-5">
         {MARKET_INDICES.map(idx => (
-          <div key={idx.name} className="bg-white rounded-2xl border border-gray-100 px-5 py-4">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-semibold text-gray-400">{idx.name}</span>
-              <span className={`text-xs font-bold flex items-center gap-0.5 ${idx.changeRate >= 0 ? 'text-red-500' : 'text-blue-600'}`}>
-                {idx.changeRate >= 0 ? <TrendingUp size={12} /> : <TrendingDown size={12} />}
-                {idx.changeRate >= 0 ? '+' : ''}{idx.changeRate.toFixed(2)}%
-              </span>
-            </div>
-            <p className="text-xl font-bold text-gray-900">{idx.value.toLocaleString('ko-KR')}</p>
-            <p className={`text-sm font-semibold mt-0.5 ${idx.changeRate >= 0 ? 'text-red-500' : 'text-blue-600'}`}>
-              {idx.changeRate >= 0 ? '+' : ''}{idx.change.toLocaleString('ko-KR')} pt
-            </p>
-          </div>
+          <MarketIndexCard key={idx.name} idx={idx} compact />
         ))}
       </div>
 

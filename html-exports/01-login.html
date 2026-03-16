@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>로그인 - 모의투자</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white min-h-screen flex flex-col items-center justify-center px-6">
+  <div class="w-full max-w-sm">
+    <!-- Logo -->
+    <div class="flex flex-col items-center mb-10">
+      <div class="w-14 h-14 rounded-2xl flex items-center justify-center mb-3" style="background-color:#0046FF">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      </div>
+      <h1 class="text-2xl font-bold text-gray-900">모의투자</h1>
+      <p class="text-sm text-gray-500 mt-1">코스피200 기반 모의투자 플랫폼</p>
+    </div>
+
+    <form class="space-y-4">
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1.5">이메일</label>
+        <input type="email" placeholder="example@email.com"
+          class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm outline-none focus:border-blue-600 transition-all" />
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1.5">비밀번호</label>
+        <div class="relative">
+          <input type="password" placeholder="비밀번호를 입력하세요"
+            class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm outline-none focus:border-blue-600 transition-all pr-11" />
+          <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between">
+        <label class="flex items-center gap-2 cursor-pointer">
+          <input type="checkbox" class="w-4 h-4 rounded" style="accent-color:#0046FF" />
+          <span class="text-sm text-gray-600">자동 로그인</span>
+        </label>
+        <a href="#" class="text-sm font-medium" style="color:#0046FF">비밀번호 찾기</a>
+      </div>
+
+      <button type="button" class="w-full py-3.5 rounded-xl text-white font-semibold text-sm" style="background-color:#0046FF">
+        로그인
+      </button>
+    </form>
+
+    <!-- Divider -->
+    <div class="flex items-center gap-3 mt-6">
+      <div class="flex-1 h-px bg-gray-200"></div>
+      <span class="text-xs text-gray-400 font-medium">또는</span>
+      <div class="flex-1 h-px bg-gray-200"></div>
+    </div>
+
+    <!-- Google Login -->
+    <button type="button" class="mt-4 w-full flex items-center justify-center gap-3 py-3.5 rounded-xl border border-gray-200 bg-white text-sm font-semibold text-gray-700 hover:bg-gray-50 shadow-sm">
+      <svg width="18" height="18" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M47.532 24.552c0-1.636-.132-3.2-.388-4.692H24v9.098h13.22c-.584 3.028-2.304 5.596-4.88 7.32v6.08h7.9c4.62-4.256 7.292-10.524 7.292-17.806z" fill="#4285F4"/>
+        <path d="M24 48c6.624 0 12.18-2.196 16.24-5.948l-7.9-6.08c-2.196 1.476-5.004 2.34-8.34 2.34-6.408 0-11.836-4.328-13.776-10.152H2.064v6.264C6.104 42.668 14.46 48 24 48z" fill="#34A853"/>
+        <path d="M10.224 28.16A14.94 14.94 0 0 1 9.412 24c0-1.444.248-2.844.812-4.16V13.576H2.064A23.98 23.98 0 0 0 0 24c0 3.876.928 7.544 2.064 10.424l8.16-6.264z" fill="#FBBC05"/>
+        <path d="M24 9.536c3.612 0 6.852 1.244 9.4 3.68l7.032-7.032C36.172 2.196 30.62 0 24 0 14.46 0 6.104 5.332 2.064 13.576l8.16 6.264C12.164 13.864 17.592 9.536 24 9.536z" fill="#EA4335"/>
+      </svg>
+      Google로 계속하기
+    </button>
+
+    <div class="mt-6 text-center">
+      <span class="text-sm text-gray-500">아직 계정이 없으신가요? </span>
+      <a href="02-signup.html" class="text-sm font-semibold" style="color:#0046FF">회원가입</a>
+    </div>
+  </div>
+</body>
+</html>

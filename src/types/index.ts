@@ -144,3 +144,15 @@ export interface PricePoint {
   time: string;
   price: number;
 }
+
+export interface PendingOrder {
+  id: string;
+  type: 'buy' | 'sell';
+  stockId: string;
+  stock: Stock;
+  quantity: number;
+  price: number;
+  totalAmount: number;
+  orderType: '시장가' | '지정가';
+  createdAt: string;
+}

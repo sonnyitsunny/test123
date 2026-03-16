@@ -4,6 +4,7 @@ import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { Search, TrendingUp, TrendingDown, ChevronRight } from 'lucide-react';
 import { STOCKS, MARKET_INDICES, MY_PORTFOLIO } from '@/data/dummy';
+import MarketIndexCard from '@/components/MarketIndexCard';
 
 type SortKey = '거래량순' | '상승순' | '하락순' | '고가순';
 
@@ -46,18 +47,7 @@ export default function TradingPage() {
       {/* Market Indices */}
       <div className="grid grid-cols-3 gap-4 mb-6">
         {MARKET_INDICES.map(idx => (
-          <div key={idx.name} className="bg-white rounded-2xl border border-gray-100 px-5 py-4">
-            <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-semibold text-gray-400">{idx.name}</span>
-              {idx.changeRate >= 0
-                ? <TrendingUp size={14} className="text-red-500" />
-                : <TrendingDown size={14} className="text-blue-600" />}
-            </div>
-            <p className="text-xl font-bold text-gray-900">{idx.value.toLocaleString('ko-KR')}</p>
-            <p className={`text-sm font-semibold mt-0.5 ${idx.changeRate >= 0 ? 'text-red-500' : 'text-blue-600'}`}>
-              {idx.changeRate >= 0 ? '+' : ''}{idx.change.toLocaleString('ko-KR')} ({idx.changeRate >= 0 ? '+' : ''}{idx.changeRate.toFixed(2)}%)
-            </p>
-          </div>
+          <MarketIndexCard key={idx.name} idx={idx} />
         ))}
       </div>
 
